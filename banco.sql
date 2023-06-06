@@ -12,6 +12,7 @@ create table agenda (
     telefone varchar(15) not null,
     celular varchar(15) not null,
     email varchar(70) not null,
+    foto varchar(100) null,
     dt_cadastro date not null,
     primary key (id_agenda)
 );

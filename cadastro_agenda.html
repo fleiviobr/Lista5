@@ -9,7 +9,7 @@
 </head>
 <body>
     <div class="container">
-        <form action="cadastro_agenda.php" method="get">
+        <form action="cadastro_agenda.php" method="post" enctype="multipart/form-data">
             <div class="input">
                 <label for="name">Nome:</label>
                 <input type="text" name="nome">
@@ -45,6 +45,9 @@
             <div class="input">
                 <label for="name">Email:</label>
                 <input type="text" name="email">
+            </div>
+            <div class="input">
+                <input type="file" name="foto" id="foto" accept="image/*" class="file">
             </div>
             <div class="input">
                 <button type="submit">Enviar</button>

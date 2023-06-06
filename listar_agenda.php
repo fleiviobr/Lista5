@@ -18,6 +18,7 @@
             <h1>Lista de Agendas</h1>
             <table>
                 <tr id="header">
+                    <th>Foto</th>
                     <th>Nome</th>
                     <th>Apelido</th>
                     <th>Endereço</th>
@@ -33,8 +34,11 @@
                 </tr>
                 <br>
                 <?php
+                if(mysqli_num_rows($result) > 0){
                     do {    
                         echo "<tr>";
+                            if($row['foto'] == ""){echo "<td>NULL</td>";}
+                            else{echo "<td><img src=" . $row ['foto'] . " width='64px' heigth='64px' class='user_image'></td>";}
                         echo "<td>" . $row ['nome'] . "</td>";
                         echo "<td>" . $row ['apelido'] . "</td>";
                         echo "<td>" . $row ['endereco'] . "</td>";
@@ -47,7 +51,8 @@
                         echo "<td>" . $row ['dt_cadastro'] . "</td>";
                         echo "<td class='update'><a href='altera_agenda.php?id_agenda=" . $row['id_agenda'] . "' class='up'>Alterar</a> </td>";
                         echo "<td class='delete'><a href='exclui_agenda.php?id_agenda=" . $row['id_agenda'] . "' class='del'>Excluir</a> </td></tr>";
-                    }while($row = mysqli_fetch_array($result))
+                    }while($row = mysqli_fetch_array($result));
+                }
                 ?>
             </table>
             <br>
